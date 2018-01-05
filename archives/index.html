@@ -547,18 +547,25 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
     new Valine({
-        av: AV,
         el: '#comments' ,
-        app_id: 'pwkFSGXAhH52A4Y00lJK2WAe-gzGzoHsz',
-        app_key: 'pdTWHTB9iT4SRhFXB3IJ20L2',
-        placeholder: 'Just go go', // 默认 null
-        notify: true, // 默认 false
-        verify: true, // 默认 false
-        path: , // 默认 window.location.pathname
-        avatar: 'mm' // 默认 ''
+        verify: true,
+        notify: true,
+        appId: 'pwkFSGXAhH52A4Y00lJK2WAe-gzGzoHsz',
+        appKey: 'pdTWHTB9iT4SRhFXB3IJ20L2',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
